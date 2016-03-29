@@ -7,6 +7,9 @@ $(document).ready(function(){
 				//Adicionando registros retornados na tabela
 				$('#tabela').append('<tr><td>'+dados[i].nome+'</td><td>'+dados[i].cidade+'</td><td></tr>');
 			}
+		},
+		error: function(erro){
+			console.log(erro);
 		}
 	});
 });
