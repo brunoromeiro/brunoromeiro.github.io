@@ -13,9 +13,7 @@ function json(){
       this.retorno = '';
       
       for (i=0; i<this.qtd; i++){
-        this.retorno += 'NOME: ' + data.pessoas[i].nome + '<br />';
-        this.retorno += 'EMAIL: ' + data.pessoas[i].email + ' - ';
-        this.retorno += 'CIDADE: ' + data.pessoas[i].cidade + '<br /><br />';
+        this.retorno = 'NOME: ' + data.pessoas[i].nome + ' EMAIL: ' + data.pessoas[i].email + ' -  CIDADE: ' + data.pessoas[i].cidade + '<br /><br />';
       }
       
       $('#resultado').html(this.retorno);
