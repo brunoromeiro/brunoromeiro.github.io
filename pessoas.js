@@ -8,5 +8,5 @@ $(document).ready(function(){
 				$('#tabela').append('<tr><td>'+dados[i].nome+'</td><td>'+dados[i].cidade+'</td><td></tr>');
 			}
 		}
-	})
-})
+	});
+});
