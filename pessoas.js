@@ -5,7 +5,7 @@ $(document).ready(function(){
 		success: function(dados){
 			for(var i=0;dados.length>i;i++){
 				//Adicionando registros retornados na tabela
-				$('#tabela').append('<tr><td>'+dados[i].nome+'</td><td>'+dados[i].cidade+'</td><td>';
+				$('#tabela').append('<tr><td>'+dados[i].nome+'</td><td>'+dados[i].cidade+'</td><td>');
 			}
 		}
 	})
