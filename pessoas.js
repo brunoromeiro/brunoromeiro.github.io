@@ -1,7 +1,9 @@
 $(document).ready(function(){
 	$('#tabela').empty(); //limpando a tabela
 	$.ajax({
-		url: 'pessoas.json', //Definindo o arquivo de onde serão buscados os dados
+		method: "POST",
+		url: "pessoas.json", //Definindo o arquivo de onde serão buscados os dados
+		contentType: "application/json; charset=utf-8",
 		success: function(dados){
 			for(var i=0;dados.length>i;i++){
 				//Adicionando registros retornados na tabela
