@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	$('#tabela').empty(); //limpando a tabela
 	$.ajax({
-		type: 'get', //Definimos o metodo HTTP usado
+		type: 'post', //Definimos o metodo HTTP usado
 		dataType: 'json', //Definimos o tipo de retorno
 		url: 'pessoas.json', //Definindo o arquivo de onde serão buscados os dados
 		success: function(dados){
