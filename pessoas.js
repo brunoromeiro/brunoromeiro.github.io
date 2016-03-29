@@ -13,7 +13,7 @@ function json(){
       this.retorno = '';
       
       for (i=0; i<this.qtd; i++){
-        this.retorno = 'NOME: ' + data.pessoas[i].nome + ' EMAIL: ' + data.pessoas[i].email + ' -  CIDADE: ' + data.pessoas[i].cidade + '<br /><br />';
+        this.retorno = 'NOME: ' + data[i].nome + ' EMAIL: ' + data[i].email + ' -  CIDADE: ' + data[i].cidade + '<br /><br />';
       }
       
       $('#resultado').html(this.retorno);
