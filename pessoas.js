@@ -9,7 +9,7 @@ function json(){
     
     //Estrutura de Resultado
     $.getJSON('pessoas.json', function(data){
-      this.qtd = data.pessoas.length;
+      this.qtd = data.length;
       this.retorno = '';
       
       for (i=0; i<this.qtd; i++){
