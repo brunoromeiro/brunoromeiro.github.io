@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GEOLO</title>
+
+</head>
+<body>
+
+<script type="text/javascript">
+	
+navigator.geolocation.getCurrentPosition(locationSucess, locationFail);
+function locationSucess(position){
+	latitude = position.coords.latitude;
+	longitude = position.coords.longitude;
+	document.write('<b>la:</b>' + latitude + '<br><b>lo:</b>' +longitude);
+}
+function locationFail(){
+	alert('Não te achamos');
+}
+</script>
+</body>
+</html>
