@@ -1,0 +1,1457 @@
+{
+  "projectGraph": {
+    "nodes": {
+      "todos-e2e": {
+        "name": "todos-e2e",
+        "type": "e2e",
+        "data": {
+          "root": "apps/todos-e2e",
+          "sourceRoot": "apps/todos-e2e/src",
+          "projectType": "application",
+          "architect": {
+            "e2e": {
+              "builder": "@nrwl/cypress:cypress",
+              "options": {
+                "cypressConfig": "apps/todos-e2e/cypress.json",
+                "tsConfig": "apps/todos-e2e/tsconfig.e2e.json",
+                "devServerTarget": "todos:serve"
+              },
+              "configurations": {
+                "production": {
+                  "devServerTarget": "todos:serve:production"
+                }
+              }
+            },
+            "lint": {
+              "builder": "@angular-devkit/build-angular:tslint",
+              "options": {
+                "tsConfig": [
+                  "apps/todos-e2e/tsconfig.e2e.json"
+                ],
+                "exclude": [
+                  "**/node_modules/**",
+                  "!apps/todos-e2e/**"
+                ]
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "apps/todos-e2e/cypress.json",
+              "ext": ".json",
+              "mtime": 1589230566063.6897
+            },
+            {
+              "file": "apps/todos-e2e/src/fixtures/example.json",
+              "ext": ".json",
+              "mtime": 1589230566067.6792
+            },
+            {
+              "file": "apps/todos-e2e/src/integration/app.spec.ts",
+              "ext": ".ts",
+              "mtime": 1589231230796.0452
+            },
+            {
+              "file": "apps/todos-e2e/src/plugins/index.js",
+              "ext": ".js",
+              "mtime": 1589230566072.6665
+            },
+            {
+              "file": "apps/todos-e2e/src/support/app.po.ts",
+              "ext": ".ts",
+              "mtime": 1589231086806.376
+            },
+            {
+              "file": "apps/todos-e2e/src/support/commands.ts",
+              "ext": ".ts",
+              "mtime": 1589230566074.661
+            },
+            {
+              "file": "apps/todos-e2e/src/support/index.ts",
+              "ext": ".ts",
+              "mtime": 1589230566074.661
+            },
+            {
+              "file": "apps/todos-e2e/tsconfig.e2e.json",
+              "ext": ".json",
+              "mtime": 1589230566064.6868
+            },
+            {
+              "file": "apps/todos-e2e/tsconfig.json",
+              "ext": ".json",
+              "mtime": 1589230566065.6904
+            },
+            {
+              "file": "apps/todos-e2e/tslint.json",
+              "ext": ".json",
+              "mtime": 1589230566063.6897
+            }
+          ]
+        }
+      },
+      "todos": {
+        "name": "todos",
+        "type": "app",
+        "data": {
+          "projectType": "application",
+          "schematics": {
+            "@nrwl/angular:component": {
+              "style": "scss"
+            }
+          },
+          "root": "apps/todos",
+          "sourceRoot": "apps/todos/src",
+          "prefix": "myorg",
+          "architect": {
+            "build": {
+              "builder": "@angular-devkit/build-angular:browser",
+              "options": {
+                "outputPath": "dist/apps/todos",
+                "index": "apps/todos/src/index.html",
+                "main": "apps/todos/src/main.ts",
+                "polyfills": "apps/todos/src/polyfills.ts",
+                "tsConfig": "apps/todos/tsconfig.app.json",
+                "aot": true,
+                "assets": [
+                  "apps/todos/src/favicon.ico",
+                  "apps/todos/src/assets"
+                ],
+                "styles": [
+                  "apps/todos/src/styles.scss"
+                ],
+                "scripts": []
+              },
+              "configurations": {
+                "production": {
+                  "fileReplacements": [
+                    {
+                      "replace": "apps/todos/src/environments/environment.ts",
+                      "with": "apps/todos/src/environments/environment.prod.ts"
+                    }
+                  ],
+                  "optimization": true,
+                  "outputHashing": "all",
+                  "sourceMap": false,
+                  "extractCss": true,
+                  "namedChunks": false,
+                  "extractLicenses": true,
+                  "vendorChunk": false,
+                  "buildOptimizer": true,
+                  "budgets": [
+                    {
+                      "type": "initial",
+                      "maximumWarning": "2mb",
+                      "maximumError": "5mb"
+                    },
+                    {
+                      "type": "anyComponentStyle",
+                      "maximumWarning": "6kb",
+                      "maximumError": "10kb"
+                    }
+                  ]
+                }
+              }
+            },
+            "serve": {
+              "builder": "@angular-devkit/build-angular:dev-server",
+              "options": {
+                "browserTarget": "todos:build",
+                "proxyConfig": "apps/todos/proxy.conf.json"
+              },
+              "configurations": {
+                "production": {
+                  "browserTarget": "todos:build:production"
+                }
+              }
+            },
+            "extract-i18n": {
+              "builder": "@angular-devkit/build-angular:extract-i18n",
+              "options": {
+                "browserTarget": "todos:build"
+              }
+            },
+            "lint": {
+              "builder": "@angular-devkit/build-angular:tslint",
+              "options": {
+                "tsConfig": [
+                  "apps/todos/tsconfig.app.json",
+                  "apps/todos/tsconfig.spec.json"
+                ],
+                "exclude": [
+                  "**/node_modules/**",
+                  "!apps/todos/**"
+                ]
+              }
+            },
+            "test": {
+              "builder": "@nrwl/jest:jest",
+              "options": {
+                "jestConfig": "apps/todos/jest.config.js",
+                "tsConfig": "apps/todos/tsconfig.spec.json",
+                "passWithNoTests": true,
+                "setupFile": "apps/todos/src/test-setup.ts"
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "apps/todos/browserslist",
+              "ext": "",
+              "mtime": 1589230566042.7556
+            },
+            {
+              "file": "apps/todos/jest.config.js",
+              "ext": ".js",
+              "mtime": 1589230566061.6956
+            },
+            {
+              "file": "apps/todos/proxy.conf.json",
+              "ext": ".json",
+              "mtime": 1589232563218.357
+            },
+            {
+              "file": "apps/todos/src/app/app.component.html",
+              "ext": ".html",
+              "mtime": 1589301636968.8894
+            },
+            {
+              "file": "apps/todos/src/app/app.component.scss",
+              "ext": ".scss",
+              "mtime": 1589230566060.6965
+            },
+            {
+              "file": "apps/todos/src/app/app.component.spec.ts",
+              "ext": ".ts",
+              "mtime": 1589230566058.707
+            },
+            {
+              "file": "apps/todos/src/app/app.component.ts",
+              "ext": ".ts",
+              "mtime": 1589309870016.1196
+            },
+            {
+              "file": "apps/todos/src/app/app.module.ts",
+              "ext": ".ts",
+              "mtime": 1589301609270.6375
+            },
+            {
+              "file": "apps/todos/src/assets/.gitkeep",
+              "ext": "",
+              "mtime": 1589230566048.7292
+            },
+            {
+              "file": "apps/todos/src/environments/environment.prod.ts",
+              "ext": ".ts",
+              "mtime": 1589230566049.7256
+            },
+            {
+              "file": "apps/todos/src/environments/environment.ts",
+              "ext": ".ts",
+              "mtime": 1589230566055.7124
+            },
+            {
+              "file": "apps/todos/src/favicon.ico",
+              "ext": ".ico",
+              "mtime": 1589230566041.7485
+            },
+            {
+              "file": "apps/todos/src/index.html",
+              "ext": ".html",
+              "mtime": 1589230566045.7456
+            },
+            {
+              "file": "apps/todos/src/main.ts",
+              "ext": ".ts",
+              "mtime": 1589230566045.7456
+            },
+            {
+              "file": "apps/todos/src/polyfills.ts",
+              "ext": ".ts",
+              "mtime": 1589230566046.734
+            },
+            {
+              "file": "apps/todos/src/styles.scss",
+              "ext": ".scss",
+              "mtime": 1589230566047.7305
+            },
+            {
+              "file": "apps/todos/src/test-setup.ts",
+              "ext": ".ts",
+              "mtime": 1589230566062.6924
+            },
+            {
+              "file": "apps/todos/tsconfig.app.json",
+              "ext": ".json",
+              "mtime": 1589230566043.7427
+            },
+            {
+              "file": "apps/todos/tsconfig.json",
+              "ext": ".json",
+              "mtime": 1589309921107.955
+            },
+            {
+              "file": "apps/todos/tsconfig.spec.json",
+              "ext": ".json",
+              "mtime": 1589230566061.6956
+            },
+            {
+              "file": "apps/todos/tslint.json",
+              "ext": ".json",
+              "mtime": 1589230566044.7393
+            }
+          ]
+        }
+      },
+      "data": {
+        "name": "data",
+        "type": "lib",
+        "data": {
+          "root": "libs/data",
+          "sourceRoot": "libs/data/src",
+          "projectType": "library",
+          "schematics": {},
+          "architect": {
+            "lint": {
+              "builder": "@angular-devkit/build-angular:tslint",
+              "options": {
+                "tsConfig": [
+                  "libs/data/tsconfig.lib.json",
+                  "libs/data/tsconfig.spec.json"
+                ],
+                "exclude": [
+                  "**/node_modules/**",
+                  "!libs/data/**"
+                ]
+              }
+            },
+            "test": {
+              "builder": "@nrwl/jest:jest",
+              "options": {
+                "jestConfig": "libs/data/jest.config.js",
+                "tsConfig": "libs/data/tsconfig.spec.json",
+                "passWithNoTests": true
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "libs/data/jest.config.js",
+              "ext": ".js",
+              "mtime": 1589301182825.306
+            },
+            {
+              "file": "libs/data/README.md",
+              "ext": ".md",
+              "mtime": 1589301182818.3237
+            },
+            {
+              "file": "libs/data/src/index.ts",
+              "ext": ".ts",
+              "mtime": 1589301182822.347
+            },
+            {
+              "file": "libs/data/src/lib/data.ts",
+              "ext": ".ts",
+              "mtime": 1589301230226.3904
+            },
+            {
+              "file": "libs/data/tsconfig.json",
+              "ext": ".json",
+              "mtime": 1589301182819.3213
+            },
+            {
+              "file": "libs/data/tsconfig.lib.json",
+              "ext": ".json",
+              "mtime": 1589301182820.328
+            },
+            {
+              "file": "libs/data/tsconfig.spec.json",
+              "ext": ".json",
+              "mtime": 1589301182825.306
+            },
+            {
+              "file": "libs/data/tslint.json",
+              "ext": ".json",
+              "mtime": 1589301182817.3264
+            }
+          ]
+        }
+      },
+      "api": {
+        "name": "api",
+        "type": "app",
+        "data": {
+          "root": "apps/api",
+          "sourceRoot": "apps/api/src",
+          "projectType": "application",
+          "prefix": "api",
+          "schematics": {},
+          "architect": {
+            "build": {
+              "builder": "@nrwl/node:build",
+              "options": {
+                "outputPath": "dist/apps/api",
+                "main": "apps/api/src/main.ts",
+                "tsConfig": "apps/api/tsconfig.app.json",
+                "assets": [
+                  "apps/api/src/assets"
+                ]
+              },
+              "configurations": {
+                "production": {
+                  "optimization": true,
+                  "extractLicenses": true,
+                  "inspect": false,
+                  "fileReplacements": [
+                    {
+                      "replace": "apps/api/src/environments/environment.ts",
+                      "with": "apps/api/src/environments/environment.prod.ts"
+                    }
+                  ]
+                }
+              }
+            },
+            "serve": {
+              "builder": "@nrwl/node:execute",
+              "options": {
+                "buildTarget": "api:build"
+              }
+            },
+            "lint": {
+              "builder": "@angular-devkit/build-angular:tslint",
+              "options": {
+                "tsConfig": [
+                  "apps/api/tsconfig.app.json",
+                  "apps/api/tsconfig.spec.json"
+                ],
+                "exclude": [
+                  "**/node_modules/**",
+                  "!apps/api/**"
+                ]
+              }
+            },
+            "test": {
+              "builder": "@nrwl/jest:jest",
+              "options": {
+                "jestConfig": "apps/api/jest.config.js",
+                "tsConfig": "apps/api/tsconfig.spec.json",
+                "passWithNoTests": true
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "apps/api/jest.config.js",
+              "ext": ".js",
+              "mtime": 1589232563216.352
+            },
+            {
+              "file": "apps/api/src/app/.gitkeep",
+              "ext": "",
+              "mtime": 1589232563213.36
+            },
+            {
+              "file": "apps/api/src/app/app.controller.spec.ts",
+              "ext": ".ts",
+              "mtime": 1589232563221.3396
+            },
+            {
+              "file": "apps/api/src/app/app.controller.ts",
+              "ext": ".ts",
+              "mtime": 1589309862497.4255
+            },
+            {
+              "file": "apps/api/src/app/app.module.ts",
+              "ext": ".ts",
+              "mtime": 1589232563223.3347
+            },
+            {
+              "file": "apps/api/src/app/app.service.spec.ts",
+              "ext": ".ts",
+              "mtime": 1589232563224.331
+            },
+            {
+              "file": "apps/api/src/app/app.service.ts",
+              "ext": ".ts",
+              "mtime": 1589308196739.555
+            },
+            {
+              "file": "apps/api/src/assets/.gitkeep",
+              "ext": "",
+              "mtime": 1589232563214.3574
+            },
+            {
+              "file": "apps/api/src/assets/json/info.json",
+              "ext": ".json",
+              "mtime": 1589309086684.2798
+            },
+            {
+              "file": "apps/api/src/environments/environment.prod.ts",
+              "ext": ".ts",
+              "mtime": 1589232563215.355
+            },
+            {
+              "file": "apps/api/src/environments/environment.ts",
+              "ext": ".ts",
+              "mtime": 1589232563216.352
+            },
+            {
+              "file": "apps/api/src/main.ts",
+              "ext": ".ts",
+              "mtime": 1589232563212.3716
+            },
+            {
+              "file": "apps/api/tsconfig.app.json",
+              "ext": ".json",
+              "mtime": 1589232563210.368
+            },
+            {
+              "file": "apps/api/tsconfig.json",
+              "ext": ".json",
+              "mtime": 1589232563210.368
+            },
+            {
+              "file": "apps/api/tsconfig.spec.json",
+              "ext": ".json",
+              "mtime": 1589232563217.35
+            },
+            {
+              "file": "apps/api/tslint.json",
+              "ext": ".json",
+              "mtime": 1589232563209.3718
+            }
+          ]
+        }
+      },
+      "ui": {
+        "name": "ui",
+        "type": "lib",
+        "data": {
+          "projectType": "library",
+          "root": "libs/ui",
+          "sourceRoot": "libs/ui/src",
+          "prefix": "myorg",
+          "architect": {
+            "lint": {
+              "builder": "@angular-devkit/build-angular:tslint",
+              "options": {
+                "tsConfig": [
+                  "libs/ui/tsconfig.lib.json",
+                  "libs/ui/tsconfig.spec.json"
+                ],
+                "exclude": [
+                  "**/node_modules/**",
+                  "!libs/ui/**"
+                ]
+              }
+            },
+            "test": {
+              "builder": "@nrwl/jest:jest",
+              "options": {
+                "jestConfig": "libs/ui/jest.config.js",
+                "tsConfig": "libs/ui/tsconfig.spec.json",
+                "passWithNoTests": true,
+                "setupFile": "libs/ui/src/test-setup.ts"
+              }
+            }
+          },
+          "schematics": {
+            "@nrwl/angular:component": {
+              "style": "scss"
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "libs/ui/jest.config.js",
+              "ext": ".js",
+              "mtime": 1589301456878.3564
+            },
+            {
+              "file": "libs/ui/README.md",
+              "ext": ".md",
+              "mtime": 1589301456866.3894
+            },
+            {
+              "file": "libs/ui/src/index.ts",
+              "ext": ".ts",
+              "mtime": 1589301456873.3694
+            },
+            {
+              "file": "libs/ui/src/lib/todos/todos.component.html",
+              "ext": ".html",
+              "mtime": 1589309931197.4507
+            },
+            {
+              "file": "libs/ui/src/lib/todos/todos.component.scss",
+              "ext": ".scss",
+              "mtime": 1589301491212.409
+            },
+            {
+              "file": "libs/ui/src/lib/todos/todos.component.spec.ts",
+              "ext": ".ts",
+              "mtime": 1589301491210.4146
+            },
+            {
+              "file": "libs/ui/src/lib/todos/todos.component.ts",
+              "ext": ".ts",
+              "mtime": 1589301538176.7046
+            },
+            {
+              "file": "libs/ui/src/lib/ui.module.spec.ts",
+              "ext": ".ts",
+              "mtime": 1589301456876.3623
+            },
+            {
+              "file": "libs/ui/src/lib/ui.module.ts",
+              "ext": ".ts",
+              "mtime": 1589301773094.8748
+            },
+            {
+              "file": "libs/ui/src/test-setup.ts",
+              "ext": ".ts",
+              "mtime": 1589301456880.3516
+            },
+            {
+              "file": "libs/ui/tsconfig.json",
+              "ext": ".json",
+              "mtime": 1589301456877.3623
+            },
+            {
+              "file": "libs/ui/tsconfig.lib.json",
+              "ext": ".json",
+              "mtime": 1589301456869.386
+            },
+            {
+              "file": "libs/ui/tsconfig.spec.json",
+              "ext": ".json",
+              "mtime": 1589301456879.353
+            },
+            {
+              "file": "libs/ui/tslint.json",
+              "ext": ".json",
+              "mtime": 1589301456870.3955
+            }
+          ]
+        }
+      },
+      "@nrwl/angular": {
+        "type": "npm",
+        "name": "@nrwl/angular",
+        "data": {
+          "version": "9.2.4",
+          "files": []
+        }
+      },
+      "@angular/animations": {
+        "type": "npm",
+        "name": "@angular/animations",
+        "data": {
+          "version": "^9.1.0",
+          "files": []
+        }
+      },
+      "@angular/common": {
+        "type": "npm",
+        "name": "@angular/common",
+        "data": {
+          "version": "^9.1.0",
+          "files": []
+        }
+      },
+      "@angular/compiler": {
+        "type": "npm",
+        "name": "@angular/compiler",
+        "data": {
+          "version": "^9.1.0",
+          "files": []
+        }
+      },
+      "@angular/core": {
+        "type": "npm",
+        "name": "@angular/core",
+        "data": {
+          "version": "^9.1.0",
+          "files": []
+        }
+      },
+      "@angular/forms": {
+        "type": "npm",
+        "name": "@angular/forms",
+        "data": {
+          "version": "^9.1.0",
+          "files": []
+        }
+      },
+      "@angular/platform-browser": {
+        "type": "npm",
+        "name": "@angular/platform-browser",
+        "data": {
+          "version": "^9.1.0",
+          "files": []
+        }
+      },
+      "@angular/platform-browser-dynamic": {
+        "type": "npm",
+        "name": "@angular/platform-browser-dynamic",
+        "data": {
+          "version": "^9.1.0",
+          "files": []
+        }
+      },
+      "@angular/router": {
+        "type": "npm",
+        "name": "@angular/router",
+        "data": {
+          "version": "^9.1.0",
+          "files": []
+        }
+      },
+      "core-js": {
+        "type": "npm",
+        "name": "core-js",
+        "data": {
+          "version": "^2.5.4",
+          "files": []
+        }
+      },
+      "rxjs": {
+        "type": "npm",
+        "name": "rxjs",
+        "data": {
+          "version": "~6.5.4",
+          "files": []
+        }
+      },
+      "zone.js": {
+        "type": "npm",
+        "name": "zone.js",
+        "data": {
+          "version": "^0.10.2",
+          "files": []
+        }
+      },
+      "@nestjs/common": {
+        "type": "npm",
+        "name": "@nestjs/common",
+        "data": {
+          "version": "^6.8.3",
+          "files": []
+        }
+      },
+      "@nestjs/core": {
+        "type": "npm",
+        "name": "@nestjs/core",
+        "data": {
+          "version": "^6.8.3",
+          "files": []
+        }
+      },
+      "@nestjs/platform-express": {
+        "type": "npm",
+        "name": "@nestjs/platform-express",
+        "data": {
+          "version": "^6.8.3",
+          "files": []
+        }
+      },
+      "reflect-metadata": {
+        "type": "npm",
+        "name": "reflect-metadata",
+        "data": {
+          "version": "^0.1.13",
+          "files": []
+        }
+      },
+      "@angular-devkit/build-angular": {
+        "type": "npm",
+        "name": "@angular-devkit/build-angular",
+        "data": {
+          "version": "0.901.0",
+          "files": []
+        }
+      },
+      "@angular/cli": {
+        "type": "npm",
+        "name": "@angular/cli",
+        "data": {
+          "version": "9.1.0",
+          "files": []
+        }
+      },
+      "@angular/compiler-cli": {
+        "type": "npm",
+        "name": "@angular/compiler-cli",
+        "data": {
+          "version": "^9.1.0",
+          "files": []
+        }
+      },
+      "@angular/language-service": {
+        "type": "npm",
+        "name": "@angular/language-service",
+        "data": {
+          "version": "^9.1.0",
+          "files": []
+        }
+      },
+      "@nrwl/cypress": {
+        "type": "npm",
+        "name": "@nrwl/cypress",
+        "data": {
+          "version": "9.2.4",
+          "files": []
+        }
+      },
+      "@nrwl/jest": {
+        "type": "npm",
+        "name": "@nrwl/jest",
+        "data": {
+          "version": "9.2.4",
+          "files": []
+        }
+      },
+      "@nrwl/nest": {
+        "type": "npm",
+        "name": "@nrwl/nest",
+        "data": {
+          "version": "^9.2.4",
+          "files": []
+        }
+      },
+      "@nrwl/workspace": {
+        "type": "npm",
+        "name": "@nrwl/workspace",
+        "data": {
+          "version": "9.2.4",
+          "files": []
+        }
+      },
+      "@types/jest": {
+        "type": "npm",
+        "name": "@types/jest",
+        "data": {
+          "version": "25.1.4",
+          "files": []
+        }
+      },
+      "@types/node": {
+        "type": "npm",
+        "name": "@types/node",
+        "data": {
+          "version": "~8.9.4",
+          "files": []
+        }
+      },
+      "codelyzer": {
+        "type": "npm",
+        "name": "codelyzer",
+        "data": {
+          "version": "~5.0.1",
+          "files": []
+        }
+      },
+      "cypress": {
+        "type": "npm",
+        "name": "cypress",
+        "data": {
+          "version": "^4.1.0",
+          "files": []
+        }
+      },
+      "dotenv": {
+        "type": "npm",
+        "name": "dotenv",
+        "data": {
+          "version": "6.2.0",
+          "files": []
+        }
+      },
+      "eslint": {
+        "type": "npm",
+        "name": "eslint",
+        "data": {
+          "version": "6.8.0",
+          "files": []
+        }
+      },
+      "jest": {
+        "type": "npm",
+        "name": "jest",
+        "data": {
+          "version": "25.2.3",
+          "files": []
+        }
+      },
+      "jest-preset-angular": {
+        "type": "npm",
+        "name": "jest-preset-angular",
+        "data": {
+          "version": "8.1.2",
+          "files": []
+        }
+      },
+      "prettier": {
+        "type": "npm",
+        "name": "prettier",
+        "data": {
+          "version": "1.19.1",
+          "files": []
+        }
+      },
+      "ts-jest": {
+        "type": "npm",
+        "name": "ts-jest",
+        "data": {
+          "version": "25.2.1",
+          "files": []
+        }
+      },
+      "ts-node": {
+        "type": "npm",
+        "name": "ts-node",
+        "data": {
+          "version": "~7.0.0",
+          "files": []
+        }
+      },
+      "tslint": {
+        "type": "npm",
+        "name": "tslint",
+        "data": {
+          "version": "~6.0.0",
+          "files": []
+        }
+      },
+      "typescript": {
+        "type": "npm",
+        "name": "typescript",
+        "data": {
+          "version": "~3.8.3",
+          "files": []
+        }
+      },
+      "@nrwl/node": {
+        "type": "npm",
+        "name": "@nrwl/node",
+        "data": {
+          "version": "9.2.4",
+          "files": []
+        }
+      },
+      "@nestjs/schematics": {
+        "type": "npm",
+        "name": "@nestjs/schematics",
+        "data": {
+          "version": "^6.7.0",
+          "files": []
+        }
+      },
+      "@nestjs/testing": {
+        "type": "npm",
+        "name": "@nestjs/testing",
+        "data": {
+          "version": "^6.8.3",
+          "files": []
+        }
+      }
+    },
+    "dependencies": {
+      "todos-e2e": [
+        {
+          "type": "implicit",
+          "source": "todos-e2e",
+          "target": "todos"
+        }
+      ],
+      "todos": [
+        {
+          "type": "static",
+          "source": "todos",
+          "target": "data"
+        },
+        {
+          "type": "static",
+          "source": "todos",
+          "target": "ui"
+        },
+        {
+          "type": "static",
+          "source": "todos",
+          "target": "@angular/core"
+        },
+        {
+          "type": "static",
+          "source": "todos",
+          "target": "@angular/common"
+        },
+        {
+          "type": "static",
+          "source": "todos",
+          "target": "@angular/platform-browser"
+        },
+        {
+          "type": "static",
+          "source": "todos",
+          "target": "@angular/platform-browser-dynamic"
+        },
+        {
+          "type": "static",
+          "source": "todos",
+          "target": "zone.js"
+        },
+        {
+          "type": "static",
+          "source": "todos",
+          "target": "jest-preset-angular"
+        }
+      ],
+      "data": [],
+      "api": [
+        {
+          "type": "static",
+          "source": "api",
+          "target": "data"
+        },
+        {
+          "type": "static",
+          "source": "api",
+          "target": "@nestjs/testing"
+        },
+        {
+          "type": "static",
+          "source": "api",
+          "target": "@nestjs/common"
+        },
+        {
+          "type": "static",
+          "source": "api",
+          "target": "@nestjs/core"
+        }
+      ],
+      "ui": [
+        {
+          "type": "static",
+          "source": "ui",
+          "target": "data"
+        },
+        {
+          "type": "static",
+          "source": "ui",
+          "target": "@angular/core"
+        },
+        {
+          "type": "static",
+          "source": "ui",
+          "target": "@angular/common"
+        },
+        {
+          "type": "static",
+          "source": "ui",
+          "target": "jest-preset-angular"
+        }
+      ],
+      "@nrwl/angular": [],
+      "@angular/animations": [],
+      "@angular/common": [],
+      "@angular/compiler": [],
+      "@angular/core": [],
+      "@angular/forms": [],
+      "@angular/platform-browser": [],
+      "@angular/platform-browser-dynamic": [],
+      "@angular/router": [],
+      "core-js": [],
+      "rxjs": [],
+      "zone.js": [],
+      "@nestjs/common": [],
+      "@nestjs/core": [],
+      "@nestjs/platform-express": [],
+      "reflect-metadata": [],
+      "@angular-devkit/build-angular": [],
+      "@angular/cli": [],
+      "@angular/compiler-cli": [],
+      "@angular/language-service": [],
+      "@nrwl/cypress": [],
+      "@nrwl/jest": [],
+      "@nrwl/nest": [],
+      "@nrwl/workspace": [],
+      "@types/jest": [],
+      "@types/node": [],
+      "codelyzer": [],
+      "cypress": [],
+      "dotenv": [],
+      "eslint": [],
+      "jest": [],
+      "jest-preset-angular": [],
+      "prettier": [],
+      "ts-jest": [],
+      "ts-node": [],
+      "tslint": [],
+      "typescript": [],
+      "@nrwl/node": [],
+      "@nestjs/schematics": [],
+      "@nestjs/testing": []
+    }
+  },
+  "fileMap": {
+    "todos-e2e": [
+      {
+        "file": "apps/todos-e2e/cypress.json",
+        "ext": ".json",
+        "mtime": 1589230566063.6897
+      },
+      {
+        "file": "apps/todos-e2e/src/fixtures/example.json",
+        "ext": ".json",
+        "mtime": 1589230566067.6792
+      },
+      {
+        "file": "apps/todos-e2e/src/integration/app.spec.ts",
+        "ext": ".ts",
+        "mtime": 1589231230796.0452
+      },
+      {
+        "file": "apps/todos-e2e/src/plugins/index.js",
+        "ext": ".js",
+        "mtime": 1589230566072.6665
+      },
+      {
+        "file": "apps/todos-e2e/src/support/app.po.ts",
+        "ext": ".ts",
+        "mtime": 1589231086806.376
+      },
+      {
+        "file": "apps/todos-e2e/src/support/commands.ts",
+        "ext": ".ts",
+        "mtime": 1589230566074.661
+      },
+      {
+        "file": "apps/todos-e2e/src/support/index.ts",
+        "ext": ".ts",
+        "mtime": 1589230566074.661
+      },
+      {
+        "file": "apps/todos-e2e/tsconfig.e2e.json",
+        "ext": ".json",
+        "mtime": 1589230566064.6868
+      },
+      {
+        "file": "apps/todos-e2e/tsconfig.json",
+        "ext": ".json",
+        "mtime": 1589230566065.6904
+      },
+      {
+        "file": "apps/todos-e2e/tslint.json",
+        "ext": ".json",
+        "mtime": 1589230566063.6897
+      }
+    ],
+    "todos": [
+      {
+        "file": "apps/todos/browserslist",
+        "ext": "",
+        "mtime": 1589230566042.7556
+      },
+      {
+        "file": "apps/todos/jest.config.js",
+        "ext": ".js",
+        "mtime": 1589230566061.6956
+      },
+      {
+        "file": "apps/todos/proxy.conf.json",
+        "ext": ".json",
+        "mtime": 1589232563218.357
+      },
+      {
+        "file": "apps/todos/src/app/app.component.html",
+        "ext": ".html",
+        "mtime": 1589301636968.8894
+      },
+      {
+        "file": "apps/todos/src/app/app.component.scss",
+        "ext": ".scss",
+        "mtime": 1589230566060.6965
+      },
+      {
+        "file": "apps/todos/src/app/app.component.spec.ts",
+        "ext": ".ts",
+        "mtime": 1589230566058.707
+      },
+      {
+        "file": "apps/todos/src/app/app.component.ts",
+        "ext": ".ts",
+        "mtime": 1589309870016.1196
+      },
+      {
+        "file": "apps/todos/src/app/app.module.ts",
+        "ext": ".ts",
+        "mtime": 1589301609270.6375
+      },
+      {
+        "file": "apps/todos/src/assets/.gitkeep",
+        "ext": "",
+        "mtime": 1589230566048.7292
+      },
+      {
+        "file": "apps/todos/src/environments/environment.prod.ts",
+        "ext": ".ts",
+        "mtime": 1589230566049.7256
+      },
+      {
+        "file": "apps/todos/src/environments/environment.ts",
+        "ext": ".ts",
+        "mtime": 1589230566055.7124
+      },
+      {
+        "file": "apps/todos/src/favicon.ico",
+        "ext": ".ico",
+        "mtime": 1589230566041.7485
+      },
+      {
+        "file": "apps/todos/src/index.html",
+        "ext": ".html",
+        "mtime": 1589230566045.7456
+      },
+      {
+        "file": "apps/todos/src/main.ts",
+        "ext": ".ts",
+        "mtime": 1589230566045.7456
+      },
+      {
+        "file": "apps/todos/src/polyfills.ts",
+        "ext": ".ts",
+        "mtime": 1589230566046.734
+      },
+      {
+        "file": "apps/todos/src/styles.scss",
+        "ext": ".scss",
+        "mtime": 1589230566047.7305
+      },
+      {
+        "file": "apps/todos/src/test-setup.ts",
+        "ext": ".ts",
+        "mtime": 1589230566062.6924
+      },
+      {
+        "file": "apps/todos/tsconfig.app.json",
+        "ext": ".json",
+        "mtime": 1589230566043.7427
+      },
+      {
+        "file": "apps/todos/tsconfig.json",
+        "ext": ".json",
+        "mtime": 1589309921107.955
+      },
+      {
+        "file": "apps/todos/tsconfig.spec.json",
+        "ext": ".json",
+        "mtime": 1589230566061.6956
+      },
+      {
+        "file": "apps/todos/tslint.json",
+        "ext": ".json",
+        "mtime": 1589230566044.7393
+      }
+    ],
+    "data": [
+      {
+        "file": "libs/data/jest.config.js",
+        "ext": ".js",
+        "mtime": 1589301182825.306
+      },
+      {
+        "file": "libs/data/README.md",
+        "ext": ".md",
+        "mtime": 1589301182818.3237
+      },
+      {
+        "file": "libs/data/src/index.ts",
+        "ext": ".ts",
+        "mtime": 1589301182822.347
+      },
+      {
+        "file": "libs/data/src/lib/data.ts",
+        "ext": ".ts",
+        "mtime": 1589301230226.3904
+      },
+      {
+        "file": "libs/data/tsconfig.json",
+        "ext": ".json",
+        "mtime": 1589301182819.3213
+      },
+      {
+        "file": "libs/data/tsconfig.lib.json",
+        "ext": ".json",
+        "mtime": 1589301182820.328
+      },
+      {
+        "file": "libs/data/tsconfig.spec.json",
+        "ext": ".json",
+        "mtime": 1589301182825.306
+      },
+      {
+        "file": "libs/data/tslint.json",
+        "ext": ".json",
+        "mtime": 1589301182817.3264
+      }
+    ],
+    "api": [
+      {
+        "file": "apps/api/jest.config.js",
+        "ext": ".js",
+        "mtime": 1589232563216.352
+      },
+      {
+        "file": "apps/api/src/app/.gitkeep",
+        "ext": "",
+        "mtime": 1589232563213.36
+      },
+      {
+        "file": "apps/api/src/app/app.controller.spec.ts",
+        "ext": ".ts",
+        "mtime": 1589232563221.3396
+      },
+      {
+        "file": "apps/api/src/app/app.controller.ts",
+        "ext": ".ts",
+        "mtime": 1589309862497.4255
+      },
+      {
+        "file": "apps/api/src/app/app.module.ts",
+        "ext": ".ts",
+        "mtime": 1589232563223.3347
+      },
+      {
+        "file": "apps/api/src/app/app.service.spec.ts",
+        "ext": ".ts",
+        "mtime": 1589232563224.331
+      },
+      {
+        "file": "apps/api/src/app/app.service.ts",
+        "ext": ".ts",
+        "mtime": 1589308196739.555
+      },
+      {
+        "file": "apps/api/src/assets/.gitkeep",
+        "ext": "",
+        "mtime": 1589232563214.3574
+      },
+      {
+        "file": "apps/api/src/assets/json/info.json",
+        "ext": ".json",
+        "mtime": 1589309086684.2798
+      },
+      {
+        "file": "apps/api/src/environments/environment.prod.ts",
+        "ext": ".ts",
+        "mtime": 1589232563215.355
+      },
+      {
+        "file": "apps/api/src/environments/environment.ts",
+        "ext": ".ts",
+        "mtime": 1589232563216.352
+      },
+      {
+        "file": "apps/api/src/main.ts",
+        "ext": ".ts",
+        "mtime": 1589232563212.3716
+      },
+      {
+        "file": "apps/api/tsconfig.app.json",
+        "ext": ".json",
+        "mtime": 1589232563210.368
+      },
+      {
+        "file": "apps/api/tsconfig.json",
+        "ext": ".json",
+        "mtime": 1589232563210.368
+      },
+      {
+        "file": "apps/api/tsconfig.spec.json",
+        "ext": ".json",
+        "mtime": 1589232563217.35
+      },
+      {
+        "file": "apps/api/tslint.json",
+        "ext": ".json",
+        "mtime": 1589232563209.3718
+      }
+    ],
+    "ui": [
+      {
+        "file": "libs/ui/jest.config.js",
+        "ext": ".js",
+        "mtime": 1589301456878.3564
+      },
+      {
+        "file": "libs/ui/README.md",
+        "ext": ".md",
+        "mtime": 1589301456866.3894
+      },
+      {
+        "file": "libs/ui/src/index.ts",
+        "ext": ".ts",
+        "mtime": 1589301456873.3694
+      },
+      {
+        "file": "libs/ui/src/lib/todos/todos.component.html",
+        "ext": ".html",
+        "mtime": 1589309931197.4507
+      },
+      {
+        "file": "libs/ui/src/lib/todos/todos.component.scss",
+        "ext": ".scss",
+        "mtime": 1589301491212.409
+      },
+      {
+        "file": "libs/ui/src/lib/todos/todos.component.spec.ts",
+        "ext": ".ts",
+        "mtime": 1589301491210.4146
+      },
+      {
+        "file": "libs/ui/src/lib/todos/todos.component.ts",
+        "ext": ".ts",
+        "mtime": 1589301538176.7046
+      },
+      {
+        "file": "libs/ui/src/lib/ui.module.spec.ts",
+        "ext": ".ts",
+        "mtime": 1589301456876.3623
+      },
+      {
+        "file": "libs/ui/src/lib/ui.module.ts",
+        "ext": ".ts",
+        "mtime": 1589301773094.8748
+      },
+      {
+        "file": "libs/ui/src/test-setup.ts",
+        "ext": ".ts",
+        "mtime": 1589301456880.3516
+      },
+      {
+        "file": "libs/ui/tsconfig.json",
+        "ext": ".json",
+        "mtime": 1589301456877.3623
+      },
+      {
+        "file": "libs/ui/tsconfig.lib.json",
+        "ext": ".json",
+        "mtime": 1589301456869.386
+      },
+      {
+        "file": "libs/ui/tsconfig.spec.json",
+        "ext": ".json",
+        "mtime": 1589301456879.353
+      },
+      {
+        "file": "libs/ui/tslint.json",
+        "ext": ".json",
+        "mtime": 1589301456870.3955
+      }
+    ]
+  }
+}
